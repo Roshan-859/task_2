@@ -1,4 +1,4 @@
-const state = { products: [], categories: ['All'], activeCategory: 'All', user: null, cart: readCart(), query: '', modalMode: 'login', resumeCheckout: false, toastTimer: null, orderBusy: false };
+const state = { products: [], categories: ['All'], activeCategory: 'All', sort: 'featured', user: null, cart: readCart(), query: '', modalMode: 'login', resumeCheckout: false, toastTimer: null, orderBusy: false };
 const $ = selector => document.querySelector(selector);
 const homeMarkup = $('#page-content').innerHTML;
 const api = async (url, options = {}) => {
@@ -32,8 +32,13 @@ function renderCategories() {
 }
 function renderProducts() {
   const grid = $('#product-grid');
-  if (!state.products.length) { grid.innerHTML = `<div class="empty-state">Nothing here just yet. Try another search or category.<button data-action="reset-filters">Clear filters</button></div>`; return; }
-  grid.innerHTML = state.products.map((product, index) => `<article class="product-card" style="--card-index:${index}">
+  const products = [...state.products];
+  if (state.sort === 'price-low') products.sort((a,b) => a.price-b.price);
+  if (state.sort === 'price-high') products.sort((a,b) => b.price-a.price);
+  if (state.sort === 'name') products.sort((a,b) => a.name.localeCompare(b.name));
+  $('#result-count').textContent = `${products.length} ${products.length === 1 ? 'piece' : 'pieces'}`;
+  if (!products.length) { grid.innerHTML = `<div class="empty-state">Nothing here just yet. Try another search or category.<button data-action="reset-filters">Clear filters</button></div>`; return; }
+  grid.innerHTML = products.map((product, index) => `<article class="product-card" style="--card-index:${index}">
     <a class="product-photo" href="/product/${encodeURIComponent(product.slug)}" data-route aria-label="View ${escapeHtml(product.name)}"><img src="${escapeHtml(product.image_url)}" alt="${escapeHtml(product.name)}" loading="lazy"/><span class="photo-index">0${index + 1}</span>${product.badge ? `<span class="product-badge">${escapeHtml(product.badge)}</span>` : ''}<span class="quick-add" data-add="${product.id}" role="button" tabindex="0" aria-label="Add ${escapeHtml(product.name)} to bag">+</span></a>
     <div class="product-info"><div><a class="product-name" href="/product/${encodeURIComponent(product.slug)}" data-route>${escapeHtml(product.name)}</a><span class="product-category">${escapeHtml(product.category)}</span></div><span class="product-price">${money(product.price)}</span></div>
   </article>`).join('');
@@ -133,6 +138,8 @@ document.addEventListener('click', async event => {
     case 'menu': document.querySelector('.main-nav').classList.toggle('mobile-open'); break;
   }
 });
+
+$('#sort-select').addEventListener('change', event => { state.sort = event.target.value; renderProducts(); });
 
 document.addEventListener('submit', async event => {
   if (event.target.id === 'newsletter-form') {
