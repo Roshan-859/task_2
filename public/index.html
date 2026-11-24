@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f6f4ef" />
+  <meta name="description" content="Thoughtful everyday objects for slower, better living." />
+  <title>Sunday Objects — Everyday, considered.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="announcement"><span>Thoughtful objects, delivered with care.</span><span>Complimentary shipping over ₹5,000 <i>↗</i></span></div>
+  <header class="site-header">
+    <button class="mobile-menu" aria-label="Open menu" data-action="menu">☰</button>
+    <a href="/" class="wordmark" aria-label="Sunday Objects home">sunday<span>objects</span><b>®</b></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-active" href="/#shop">Shop all</a><a href="/#shop" data-nav-category="Objects">Objects</a><a href="/#shop" data-nav-category="Textiles">Textiles</a><a href="/#story">Our point of view</a>
+    </nav>
+    <div class="header-tools">
+      <button class="tool-button search-toggle" aria-label="Search" data-action="search"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><span>Search</span></button>
+      <button class="tool-button account-toggle" aria-label="Account" data-action="account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M4.8 20c.7-3.5 3.4-5.4 7.2-5.4s6.5 1.9 7.2 5.4"/></svg></button>
+      <button class="tool-button bag-toggle" aria-label="Shopping bag" data-action="bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span>Bag</span><b id="bag-count">0</b></button>
+    </div>
+  </header>
+  <div class="search-bar" id="search-bar" hidden><label for="search-input">Find something lovely</label><input id="search-input" type="search" placeholder="Try “linen” or “lamp”" autocomplete="off"/><button data-action="close-search" aria-label="Close search">×</button></div>
+  <main id="page-content">
+    <section class="hero">
+      <div class="hero-copy"><div class="eyebrow"><span class="eyebrow-rule"></span> MADE FOR EVERYDAY</div><h1>Everyday,<br/><em>considered.</em></h1><p>Useful things, made beautifully. A small collection for a life well lived.</p><a class="hero-link" href="#shop">Explore the collection <span>↗</span></a><div class="hero-note"><span>01 / 04</span><span class="hero-progress"><i></i></span><span>Objects for slower living</span></div></div>
+      <div class="hero-image-wrap"><img class="hero-image" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=88" alt="Warm, sunlit living room with natural textures"/><div class="hero-image-stamp"><span>THE SUNDAY<br/>EDIT</span><i>✳</i></div><div class="hero-caption"><span>Space to slow down</span><span>STUDY NO. 01</span></div></div>
+      <div class="hero-side-mark">A LITTLE MORE INTENTIONAL · ALWAYS</div>
+    </section>
+    <section class="values-strip" aria-label="Our promises"><span><i>✳</i> Thoughtfully sourced</span><span><i>✳</i> Made to be kept</span><span><i>✳</i> Small-batch, always</span><span class="values-tail">A FEW GOOD THINGS. NOTHING MORE.</span></section>
+    <section class="shop-section" id="shop">
+      <div class="section-intro"><div><div class="eyebrow"><span class="eyebrow-rule"></span> THE COLLECTION</div><h2>Good things,<br/><em>for every day.</em></h2></div><p>Objects with a reason to be here.<br/>Made well, used often, loved for longer.</p></div>
+      <div class="shop-toolbar"><div class="category-filters" id="category-filters" aria-label="Filter by category"></div><div class="sort-label">A considered edit <span>↓</span></div></div>
+      <div class="product-grid" id="product-grid" aria-live="polite"><div class="loading-state">Gathering the good things…</div></div>
+    </section>
+    <section class="story-section" id="story"><div class="story-image"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1300&q=85" alt="A quiet corner furnished with natural materials" loading="lazy"/><div class="story-image-caption">A HOME THAT FEELS LIKE YOURS</div></div><div class="story-copy"><div class="eyebrow"><span class="eyebrow-rule"></span> OUR POINT OF VIEW</div><h2>Less, but<br/><em>more meaningful.</em></h2><p>We believe the everyday deserves a little more thought. So we look for honest materials, useful forms, and the small details that make a piece feel like it belongs.</p><p>Not more things. Just better ones.</p><a href="#shop" class="text-link">A little about us <span>↗</span></a><div class="story-signature">With care, <span>Sunday</span></div></div></section>
+    <section class="newsletter"><div><div class="eyebrow"><span class="eyebrow-rule"></span> LETTERS FROM SUNDAY</div><h2>A note, now<br/><em>and then.</em></h2><p>New pieces, thoughtful finds, and little reminders to slow down.</p></div><form id="newsletter-form"><label for="newsletter-email">YOUR EMAIL ADDRESS</label><div class="newsletter-input"><input id="newsletter-email" type="email" placeholder="you@example.com" required/><button type="submit" aria-label="Subscribe">↗</button></div><span class="newsletter-small" id="newsletter-message">Only when we have something worth saying.</span></form><span class="newsletter-sun">✳</span></section>
+  </main>
+  <footer class="site-footer"><div class="footer-brand"><a href="/" class="wordmark">sunday<span>objects</span><b>®</b></a><p>A few good things for everyday life.</p></div><div class="footer-links"><div><b>EXPLORE</b><a href="/#shop">Shop all</a><a href="/#story">Our point of view</a><a href="/#shop">New arrivals</a></div><div><b>HERE TO HELP</b><a href="mailto:hello@sundayobjects.example">Contact</a><a href="#shipping">Shipping & returns</a><button data-action="account">Your account</button></div></div><div class="footer-bottom"><span>© 2026 Sunday Objects. Made with care.</span><span>GOOD THINGS, LESS OFTEN.</span></div></footer>
+  <div class="drawer-scrim" id="drawer-scrim" data-action="close-drawer" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Your shopping bag" aria-hidden="true"><div class="drawer-head"><div><span class="eyebrow">YOUR BAG</span><h2>A few good things <span id="drawer-count"></span></h2></div><button class="close-button" data-action="close-drawer" aria-label="Close bag">×</button></div><div class="shipping-progress" id="shipping-progress"></div><div class="cart-items" id="cart-items"></div><div class="cart-footer" id="cart-footer"></div></aside>
+  <div class="modal-scrim" id="modal-scrim" data-action="close-modal" hidden></div>
+  <section class="modal" id="modal" aria-modal="true" role="dialog" aria-labelledby="modal-title" hidden><button class="close-button modal-close" data-action="close-modal" aria-label="Close">×</button><div id="modal-content"></div></section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
